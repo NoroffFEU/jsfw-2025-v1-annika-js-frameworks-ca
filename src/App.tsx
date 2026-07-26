@@ -1,12 +1,7 @@
-import { Button } from "@/components/ui/button";
+import { AppRoutes } from "@/routes/AppRoutes";
 
 function App() {
-  return (
-    <main className="min-h-screen p-8">
-      <h1 className="mb-6 text-3xl font-bold">Online Shop</h1>
-      <Button>Test button</Button>
-    </main>
-  );
+  return <AppRoutes />;
 }
 
 export default App;
