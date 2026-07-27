@@ -11,13 +11,35 @@ export function Header() {
         <nav aria-label="Main navigation">
           <ul className="flex items-center gap-4">
             <li>
-              <NavLink to="/">Products</NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "font-semibold underline underline-offset-4" : ""
+                }
+                end
+                to="/"
+              >
+                Products
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/contact">Contact</NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "font-semibold underline underline-offset-4" : ""
+                }
+                to="/contact"
+              >
+                Contact
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/cart">Cart</NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "font-semibold underline underline-offset-4" : ""
+                }
+                to="/cart"
+              >
+                Cart
+              </NavLink>
             </li>
           </ul>
         </nav>
