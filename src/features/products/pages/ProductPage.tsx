@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { getProduct } from "../services/productsApi";
 import type { Product } from "../types/product";
+import { Button } from "@/components/ui/button";
+import { useCartStore } from "@/features/cart/store/cartStore";
 
 export function ProductPage() {
   const { id } = useParams<{ id: string }>();
@@ -9,6 +11,8 @@ export function ProductPage() {
   const [product, setProduct] = useState<Product | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  const addItem = useCartStore((state) => state.addItem);
 
   useEffect(() => {
     if (!id) {
@@ -98,6 +102,9 @@ export function ProductPage() {
           ) : (
             <p className="text-xl font-semibold">${product.price.toFixed(2)}</p>
           )}
+          <Button type="button" onClick={() => addItem(product)}>
+            Add to cart
+          </Button>
 
           {product.tags.length > 0 && (
             <div>
