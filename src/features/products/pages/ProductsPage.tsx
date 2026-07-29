@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ProductCard } from "../components/ProductCard";
 
 import { getProducts } from "../services/productsApi";
 import type { Product } from "../types/product";
@@ -57,6 +58,11 @@ export function ProductsPage() {
   return (
     <section className="min-h-screen p-8">
       <h1 className="text-3xl font-bold">Products</h1>
+      <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
     </section>
   );
 }
