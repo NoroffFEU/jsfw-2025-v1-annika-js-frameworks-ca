@@ -10,7 +10,13 @@ export function ProductCard({ product }: ProductCardProps) {
   const hasDiscount = product.price > product.discountedPrice;
 
   return (
-    <article className="overflow-hidden rounded-lg border bg-white">
+    <article className="relative overflow-hidden rounded-lg border bg-white">
+      {hasDiscount && (
+        <span className="absolute top-3 left-3 z-10 rounded bg-red-600 px-2 py-1 text-sm font-semibold text-white">
+          Sale
+        </span>
+      )}
+
       <Link to={`/product/${product.id}`}>
         <img
           className="aspect-square w-full object-cover"
