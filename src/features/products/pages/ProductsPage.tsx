@@ -1,21 +1,15 @@
+import { Link } from "react-router";
 import { useEffect, useState } from "react";
 import { ProductCard } from "../components/ProductCard";
 
 import { getProducts } from "../services/productsApi";
 import type { Product } from "../types/product";
 
-type SortOption =
-  | "default"
-  | "price-low-high"
-  | "price-high-low"
-  | "rating-high-low";
-
 export function ProductsPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
-  const [sortOption, setSortOption] = useState<SortOption>("default");
 
   useEffect(() => {
     const fetchAllProducts = async () => {
@@ -69,34 +63,6 @@ export function ProductsPage() {
     product.title.toLowerCase().includes(normalizedSearchTerm),
   );
 
-  const sortedProducts = [...filteredProducts];
-
-  switch (sortOption) {
-    case "price-low-high":
-      sortedProducts.sort(
-        (firstProduct, secondProduct) =>
-          firstProduct.discountedPrice - secondProduct.discountedPrice,
-      );
-      break;
-
-    case "price-high-low":
-      sortedProducts.sort(
-        (firstProduct, secondProduct) =>
-          secondProduct.discountedPrice - firstProduct.discountedPrice,
-      );
-      break;
-
-    case "rating-high-low":
-      sortedProducts.sort(
-        (firstProduct, secondProduct) =>
-          secondProduct.rating - firstProduct.rating,
-      );
-      break;
-
-    default:
-      break;
-  }
-
   return (
     <section className="min-h-screen p-8">
       <h1 className="text-3xl font-bold">Products</h1>
@@ -113,36 +79,35 @@ export function ProductsPage() {
           onChange={(event) => setSearchTerm(event.target.value)}
           placeholder="Search by product name..."
         />
-      </div>
-      <div className="mt-4 max-w-md">
-        <label className="mb-2 block font-medium" htmlFor="product-sort">
-          Sort products
-        </label>
 
-        <select
-          className="w-full rounded-md border px-3 py-2"
-          id="product-sort"
-          value={sortOption}
-          onChange={(event) => setSortOption(event.target.value as SortOption)}
-        >
-          <option value="default">Default order</option>
-          <option value="price-low-high">Price: low to high</option>
-          <option value="price-high-low">Price: high to low</option>
-          <option value="rating-high-low">Rating: high to low</option>
-        </select>
+        {normalizedSearchTerm && (
+          <div className="mt-2 overflow-hidden rounded-md border bg-white">
+            {filteredProducts.length > 0 ? (
+              <ul aria-label="Product search results">
+                {filteredProducts.map((product) => (
+                  <li className="border-b last:border-b-0" key={product.id}>
+                    <Link
+                      className="block px-3 py-2 hover:bg-muted"
+                      to={`/product/${product.id}`}
+                    >
+                      {product.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="px-3 py-2" role="status">
+                No products match your search.
+              </p>
+            )}
+          </div>
+        )}
       </div>
-
-      {filteredProducts.length > 0 ? (
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {sortedProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-      ) : (
-        <p className="mt-8" role="status">
-          No products match your search.
-        </p>
-      )}
+      <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
     </section>
   );
 }
