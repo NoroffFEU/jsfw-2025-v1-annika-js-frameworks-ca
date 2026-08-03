@@ -4,6 +4,7 @@ import { getProduct } from "../services/productsApi";
 import type { Product } from "../types/product";
 import { Button } from "@/components/ui/button";
 import { useCartStore } from "@/features/cart/store/cartStore";
+import { toast } from "sonner";
 
 export function ProductPage() {
   const { id } = useParams<{ id: string }>();
@@ -73,6 +74,11 @@ export function ProductPage() {
     );
   }
 
+  const handleAddToCart = () => {
+    addItem(product);
+    toast.success(`${product.title} added to cart`);
+  };
+
   const hasDiscount = product.price > product.discountedPrice;
 
   return (
@@ -102,7 +108,7 @@ export function ProductPage() {
           ) : (
             <p className="text-xl font-semibold">${product.price.toFixed(2)}</p>
           )}
-          <Button type="button" onClick={() => addItem(product)}>
+          <Button type="button" onClick={handleAddToCart}>
             Add to cart
           </Button>
 
