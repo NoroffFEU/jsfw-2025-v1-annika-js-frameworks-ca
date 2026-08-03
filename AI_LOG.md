@@ -4,6 +4,8 @@ This document records the use of artificial intelligence during the development 
 
 AI was used as a learning and support tool for planning, explaining concepts, reviewing code, and debugging. ChatGPT also provided example code and implementation suggestions.
 
+GitHub Copilot Next Edit Suggestions were enabled in VS Code during part of the development process. I did not intentionally accept these suggestions and later disabled Next Edit Suggestions to prevent AI-generated related code edits during the remainder of the assignment. Standard TypeScript IntelliSense remained enabled.
+
 Where applicable, the implementation suggestions followed patterns and examples from the course material provided, including `useState`, `useEffect`, conditional rendering, list rendering, Zustand, React Hook Form, and Zod. The patterns were adapted to the project’s TypeScript structure and specific requirements rather than copied as complete course solutions. I reviewed, adapted, manually integrated, and tested these suggestions. I am responsible for the final implementation and can explain the submitted code.
 
 ## 21–27 July 2026 — Project planning and setup
@@ -115,3 +117,13 @@ Where applicable, the implementation suggestions followed patterns and examples 
 **Assistance received:** ChatGPT identified that some earlier assistance included detailed code suggestions and recommended documenting this transparently, reviewing all submitted code, and changing the remaining workflow to student-written implementation supported by conceptual explanations and debugging. ChatGPT assisted in drafting this AI usage log.
 
 **Outcome:** I reviewed the AI policy and adopted a more restrictive workflow for the remainder of the assignment. All AI assistance will be documented, and I will only submit code that has been understood, integrated, and tested.
+
+## 3 August 2026 — Cart removal notification
+
+**Tool used:** ChatGPT
+
+**Purpose:** Add the required toast notification when a product is removed from the cart.
+
+**Assistance received:** ChatGPT reviewed my `CartPage` code and explained how to reuse a removal handler for both the Remove button and decreasing an item quantity from one to zero. It also helped identify that the current quantity, rather than an already reduced quantity, must be passed to the decrease handler.
+
+**Outcome:** I implemented and tested removal notifications for both removal paths while keeping normal quantity reductions free from unnecessary toast messages.

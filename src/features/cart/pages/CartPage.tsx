@@ -1,12 +1,26 @@
 import { Button } from "@/components/ui/button";
 import { useCartStore } from "../store/cartStore";
 import { useNavigate } from "react-router";
+import { toast } from "sonner";
 
 export function CartPage() {
   const items = useCartStore((state) => state.items);
   const removeItem = useCartStore((state) => state.removeItem);
   const updateQuantity = useCartStore((state) => state.updateQuantity);
   const navigate = useNavigate();
+
+  const handleRemoveItem = (productId: string) => {
+    removeItem(productId);
+    toast.success("Item removed from cart");
+  };
+
+  const handleDecreaseQuantity = (productId: string, quantity: number) => {
+    if (quantity === 1) {
+      handleRemoveItem(productId);
+    } else {
+      updateQuantity(productId, quantity - 1);
+    }
+  };
 
   if (items.length === 0) {
     return (
@@ -44,7 +58,7 @@ export function CartPage() {
                 <Button
                   type="button"
                   aria-label={`Decrease quantity of ${item.title}`}
-                  onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                  onClick={() => handleDecreaseQuantity(item.id, item.quantity)}
                 >
                   −
                 </Button>
@@ -59,7 +73,7 @@ export function CartPage() {
                   +
                 </Button>
 
-                <Button type="button" onClick={() => removeItem(item.id)}>
+                <Button type="button" onClick={() => handleRemoveItem(item.id)}>
                   Remove
                 </Button>
               </div>
