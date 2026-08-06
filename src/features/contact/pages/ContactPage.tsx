@@ -13,6 +13,7 @@ export function ContactPage() {
     reset,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
+    mode: "onBlur",
   });
 
   const onSubmit = (data: ContactFormData) => {
