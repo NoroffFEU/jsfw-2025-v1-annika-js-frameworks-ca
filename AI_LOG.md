@@ -157,3 +157,13 @@ Outcome: I added a custom favicon and separate light and dark SVG logo files. I 
 **Assistance received:** ChatGPT used the project information and package.json I provided to identify the technologies and scripts actually used. It then helped structure and draft the initial README content based on the format of one of my previous projects.
 
 **Outcome:** I reviewed and adapted the draft. README.md now provides clear information about Found for someone who wants to understand, install, run, or review the project.
+
+## 9 August 2026 — Netlify routing
+
+**Tool used:** ChatGPT
+
+**Purpose:** Debug a 404 error when opening or refreshing client-side routes on the deployed site.
+
+**Assistance received:** ChatGPT explained that Netlify needed a redirect rule to serve index.html for routes handled by React Router.
+
+**Outcome:** I added a public/\_redirects file so routes such as /cart work when opened or refreshed directly.
