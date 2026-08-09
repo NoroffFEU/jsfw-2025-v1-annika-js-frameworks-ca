@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { useCartStore } from "../store/cartStore";
 import { useNavigate } from "react-router";
 import { toast } from "sonner";
+import { Trash2 } from "lucide-react";
 
 export function CartPage() {
   const items = useCartStore((state) => state.items);
@@ -57,27 +58,31 @@ export function CartPage() {
 
               <p>${item.discountedPrice.toFixed(2)} each</p>
 
-              <div className="flex flex-wrap items-center gap-2">
+              <div className="flex w-fit items-center rounded-md border border-neutral-400">
                 <Button
+                  className="rounded-none bg-transparent text-black text-2xl shadow-none hover:bg-transparent hover:text-neutral-500"
                   type="button"
-                  aria-label={`Decrease quantity of ${item.title}`}
+                  variant="ghost"
+                  aria-label={
+                    item.quantity === 1
+                      ? `Remove ${item.title} from cart`
+                      : `Decrease quantity of ${item.title}`
+                  }
                   onClick={() => handleDecreaseQuantity(item.id, item.quantity)}
                 >
-                  −
+                  {item.quantity === 1 ? <Trash2 aria-hidden="true" /> : "−"}
                 </Button>
 
-                <span>Quantity: {item.quantity}</span>
+                <span className="min-w-10 text-center">{item.quantity}</span>
 
                 <Button
+                  className="rounded-none bg-transparent text-black text-2xl shadow-none hover:bg-transparent hover:text-neutral-500"
                   type="button"
+                  variant="ghost"
                   aria-label={`Increase quantity of ${item.title}`}
                   onClick={() => updateQuantity(item.id, item.quantity + 1)}
                 >
                   +
-                </Button>
-
-                <Button type="button" onClick={() => handleRemoveItem(item.id)}>
-                  Remove
                 </Button>
               </div>
             </div>
