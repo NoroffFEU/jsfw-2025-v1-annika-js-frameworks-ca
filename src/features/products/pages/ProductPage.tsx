@@ -61,7 +61,7 @@ export function ProductPage() {
   if (error) {
     return (
       <section className="min-h-screen p-8">
-        <p role="alert">Could not load product: {error}</p>
+        <p role="alert">{error}</p>
       </section>
     );
   }
