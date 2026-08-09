@@ -127,3 +127,23 @@ Where applicable, the implementation suggestions followed patterns and examples 
 **Assistance received:** ChatGPT reviewed my `CartPage` code and explained how to reuse a removal handler for both the Remove button and decreasing an item quantity from one to zero. It also helped identify that the current quantity, rather than an already reduced quantity, must be passed to the decrease handler.
 
 **Outcome:** I implemented and tested removal notifications for both removal paths while keeping normal quantity reductions free from unnecessary toast messages.
+
+## 9 August 2026 — Branding and favicon workflow
+
+Tool used: ChatGPT
+
+Purpose: Discuss an appropriate workflow for creating and exporting a logo and favicon from Figma.
+
+Assistance received: ChatGPT provided general guidance on suitable file formats and the practical use of separate light and dark logo variants. I created the visual design and exported the final assets from Figma myself.
+
+Outcome: I added a custom favicon and separate light and dark SVG logo files. I integrated both logo variants into the Header and Footer and verified that the files are referenced by the application.
+
+## 9 August 2026 — Responsive cart layout
+
+**Tool used: ChatGPT**
+
+**Purpose:** Identify and correct a horizontal overflow problem on the Cart page at mobile screen widths.
+
+**Assistance received:** I provided a screenshot of the mobile layout. ChatGPT identified that the horizontal card layout and non-wrapping controls caused the Remove button to extend beyond the card. It explained how responsive layout direction, image sizing, and wrapping controls could prevent the overflow.
+
+**Outcome:** I implemented and tested responsive changes to the cart layout. Product information and controls now remain within the card on smaller screens, while the wider layout is retained for larger screens.

@@ -9,8 +9,17 @@ export function Header() {
   return (
     <header className="border-b">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <NavLink className="text-xl font-bold" to="/">
-          Online Shop
+        <NavLink aria-label="Found home" className="inline-flex items-center" to="/">
+          <img
+            className="block h-8 w-auto md:h-10 lg:h-12 dark:hidden"
+            src="/Found_light.svg"
+            alt="Found"
+          />
+          <img
+            className="hidden h-8 w-auto md:h-10 lg:h-12 dark:block"
+            src="/Found_dark.svg"
+            alt="Found"
+          />
         </NavLink>
 
         <div className="flex items-center gap-6">

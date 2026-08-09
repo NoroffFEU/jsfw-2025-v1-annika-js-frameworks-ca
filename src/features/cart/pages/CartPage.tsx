@@ -42,9 +42,12 @@ export function CartPage() {
 
       <ul className="mt-8 space-y-4">
         {items.map((item) => (
-          <li className="flex gap-4 rounded-lg border p-4" key={item.id}>
+          <li
+            className="flex flex-col gap-4 rounded-lg border p-4 sm:flex-row"
+            key={item.id}
+          >
             <img
-              className="h-32 w-32 rounded object-cover"
+              className="h-48 w-full rounded object-cover sm:h-32 sm:w-32"
               src={item.image.url}
               alt={item.image.alt || item.title}
             />
@@ -54,7 +57,7 @@ export function CartPage() {
 
               <p>${item.discountedPrice.toFixed(2)} each</p>
 
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <Button
                   type="button"
                   aria-label={`Decrease quantity of ${item.title}`}

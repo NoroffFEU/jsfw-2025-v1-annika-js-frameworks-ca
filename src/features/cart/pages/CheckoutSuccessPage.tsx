@@ -12,10 +12,11 @@ export function CheckoutSuccessPage() {
 
   return (
     <section className="min-h-screen p-8">
-      <h1 className="text-3xl font-bold">Checkout successful</h1>
+      <h1 className="text-3xl font-bold">Thank you for your order!</h1>
 
       <p className="mt-4">
-        Thank you for your order. Your cart has been cleared.
+        Your order has been placed successfully. You’ll receive a confirmation
+        email shortly.
       </p>
 
       <Link

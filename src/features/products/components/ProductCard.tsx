@@ -10,7 +10,7 @@ export function ProductCard({ product }: ProductCardProps) {
   const hasDiscount = product.price > product.discountedPrice;
 
   return (
-    <article className="relative overflow-hidden rounded-lg border bg-white">
+    <article className="group relative overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm transition-shadow duration-200 hover:shadow-lg">
       {hasDiscount && (
         <span className="absolute top-3 left-3 z-10 rounded bg-red-600 px-2 py-1 text-sm font-semibold text-white">
           Sale
