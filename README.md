@@ -1,6 +1,7 @@
 # Found
 
 A responsive online shop built with React and TypeScript.
+![https://found-found.netlify.app/](image.png)
 
 Found was developed as a JavaScript Frameworks course assignment. The application retrieves products from the Noroff Online Shop API and allows users to search for products, view product details, manage a persistent shopping cart, complete a checkout flow, and submit a validated contact form.
 
@@ -119,7 +120,7 @@ The form is not connected to a server endpoint. Successful submissions provide u
 
 ## Live Site
 
-The deployment link will be added after deployment.
+https://found-found.netlify.app/
 
 ## Repository and Contact
 
