@@ -147,3 +147,13 @@ Outcome: I added a custom favicon and separate light and dark SVG logo files. I 
 **Assistance received:** I provided a screenshot of the mobile layout. ChatGPT identified that the horizontal card layout and non-wrapping controls caused the Remove button to extend beyond the card. It explained how responsive layout direction, image sizing, and wrapping controls could prevent the overflow.
 
 **Outcome:** I implemented and tested responsive changes to the cart layout. Product information and controls now remain within the card on smaller screens, while the wider layout is retained for larger screens.
+
+## 9 August 2026 — Drafting a Readme file
+
+**Tool used: ChatGPT**
+
+**Purpose:** Create a structured README that documents the project’s functionality, tech stack, setup, API usage, and available scripts.
+
+**Assistance received:** ChatGPT used the project information and package.json I provided to identify the technologies and scripts actually used. It then helped structure and draft the initial README content based on the format of one of my previous projects.
+
+**Outcome:** I reviewed and adapted the draft. README.md now provides clear information about Found for someone who wants to understand, install, run, or review the project.
