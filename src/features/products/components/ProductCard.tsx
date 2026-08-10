@@ -9,11 +9,15 @@ interface ProductCardProps {
 export function ProductCard({ product }: ProductCardProps) {
   const hasDiscount = product.price > product.discountedPrice;
 
+  const discountPercentage = Math.round(
+    ((product.price - product.discountedPrice) / product.price) * 100,
+  );
+
   return (
     <article className="group relative overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm transition-shadow duration-200 hover:shadow-lg">
       {hasDiscount && (
-        <span className="absolute top-3 left-3 z-10 rounded bg-red-600 px-2 py-1 text-sm font-semibold text-white">
-          Sale
+        <span className="absolute left-3 top-3 rounded bg-red-700 px-2 py-1 text-sm font-semibold text-white">
+          {discountPercentage}% OFF
         </span>
       )}
 
