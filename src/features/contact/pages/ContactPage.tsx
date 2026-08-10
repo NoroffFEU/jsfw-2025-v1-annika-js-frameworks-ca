@@ -21,6 +21,11 @@ export function ContactPage() {
     console.log("Contact form submitted:", data);
     reset();
     setIsSubmitted(true);
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   return (
