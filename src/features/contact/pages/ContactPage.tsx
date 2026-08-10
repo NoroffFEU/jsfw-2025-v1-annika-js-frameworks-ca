@@ -27,14 +27,8 @@ export function ContactPage() {
     <section className="min-h-screen p-8">
       <h1 className="text-3xl font-bold">Contact</h1>
       {isSubmitted && (
-        <p
-          className="mt-4 text-muted-foreground"
-          role="status"
-          style={{ whiteSpace: "pre-wrap" }}
-        >
-          {
-            "Thank you! Your message has been submitted.\nWe'll get back to you as soon as possible."
-          }
+        <p className="mt-4" role="status" style={{ whiteSpace: "pre-wrap" }}>
+          {"Thank you!\nWe'll get back to you as soon as possible."}
         </p>
       )}
       <form
