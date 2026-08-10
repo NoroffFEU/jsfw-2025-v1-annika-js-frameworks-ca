@@ -87,10 +87,16 @@ export function ProductsPage() {
                 {filteredProducts.map((product) => (
                   <li className="border-b last:border-b-0" key={product.id}>
                     <Link
-                      className="block px-3 py-2 hover:bg-muted"
+                      className="flex items-center gap-3 px-3 py-2 hover:bg-muted"
                       to={`/product/${product.id}`}
                     >
-                      {product.title}
+                      <img
+                        className="h-12 w-12 rounded object-cover"
+                        src={product.image.url}
+                        alt=""
+                      />
+
+                      <span>{product.title}</span>
                     </Link>
                   </li>
                 ))}
