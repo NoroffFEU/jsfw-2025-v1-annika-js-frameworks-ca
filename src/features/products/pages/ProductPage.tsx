@@ -117,7 +117,10 @@ export function ProductPage() {
               <h2 className="font-semibold">Tags</h2>
               <ul className="flex flex-wrap gap-2">
                 {product.tags.map((tag) => (
-                  <li className="rounded bg-muted px-2 py-1" key={tag}>
+                  <li
+                    className="rounded-md border border-border bg-secondary px-2 py-1 text-secondary-foreground"
+                    key={tag}
+                  >
                     {tag}
                   </li>
                 ))}

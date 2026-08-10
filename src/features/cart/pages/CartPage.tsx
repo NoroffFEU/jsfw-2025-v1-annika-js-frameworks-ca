@@ -60,7 +60,7 @@ export function CartPage() {
 
               <div className="flex w-fit items-center rounded-md border border-neutral-400">
                 <Button
-                  className="rounded-none bg-transparent text-black text-2xl shadow-none hover:bg-transparent hover:text-neutral-500"
+                  className="rounded-none bg-transparent text-foreground text-2xl shadow-none hover:bg-transparent hover:text-muted-foreground"
                   type="button"
                   variant="ghost"
                   aria-label={
@@ -80,7 +80,7 @@ export function CartPage() {
                 <span className="min-w-10 text-center">{item.quantity}</span>
 
                 <Button
-                  className="rounded-none bg-transparent text-black text-2xl shadow-none hover:bg-transparent hover:text-neutral-500"
+                  className="rounded-none bg-transparent text-foreground text-2xl shadow-none hover:bg-transparent hover:text-muted-foreground"
                   type="button"
                   variant="ghost"
                   aria-label={`Increase quantity of ${item.title}`}

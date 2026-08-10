@@ -81,7 +81,7 @@ export function ProductsPage() {
         />
 
         {normalizedSearchTerm && (
-          <div className="mt-2 overflow-hidden rounded-md border bg-white">
+          <div className="mt-2 overflow-hidden rounded-md border bg-card text-card-foreground">
             {filteredProducts.length > 0 ? (
               <ul aria-label="Product search results">
                 {filteredProducts.map((product) => (
