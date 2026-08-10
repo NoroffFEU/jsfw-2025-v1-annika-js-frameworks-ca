@@ -70,7 +70,11 @@ export function CartPage() {
                   }
                   onClick={() => handleDecreaseQuantity(item.id, item.quantity)}
                 >
-                  {item.quantity === 1 ? <Trash2 aria-hidden="true" /> : "−"}
+                  {item.quantity === 1 ? (
+                    <Trash2 className="relative top-px" aria-hidden="true" />
+                  ) : (
+                    "−"
+                  )}
                 </Button>
 
                 <span className="min-w-10 text-center">{item.quantity}</span>
