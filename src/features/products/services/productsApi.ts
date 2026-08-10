@@ -17,6 +17,9 @@ export async function getProducts(): Promise<Product[]> {
 export async function getProduct(id: string): Promise<Product> {
   const response = await fetch(`${API_URL}/${id}`);
 
+  if (response.status === 400) {
+    throw new Error("Invalid product ID.");
+  }
   if (response.status === 404) {
     throw new Error("Product not found.");
   }
