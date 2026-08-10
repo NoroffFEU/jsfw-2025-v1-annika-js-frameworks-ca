@@ -52,7 +52,7 @@ export function ProductsPage() {
   if (products.length === 0) {
     return (
       <section className="min-h-screen p-8">
-        <p>No products found.</p>
+        <p>No products found</p>
       </section>
     );
   }

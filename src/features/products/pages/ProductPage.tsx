@@ -45,7 +45,7 @@ export function ProductPage() {
   if (!id) {
     return (
       <section className="min-h-screen p-8">
-        <p role="alert">No product ID provided.</p>
+        <p role="alert">No product ID provided</p>
       </section>
     );
   }
@@ -69,7 +69,7 @@ export function ProductPage() {
   if (!product) {
     return (
       <section className="min-h-screen p-8">
-        <p>Product not found.</p>
+        <p>Product not found</p>
       </section>
     );
   }
