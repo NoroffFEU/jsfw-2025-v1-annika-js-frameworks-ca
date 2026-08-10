@@ -6,6 +6,8 @@ AI was used as a learning and support tool for planning, explaining concepts, re
 
 GitHub Copilot Next Edit Suggestions were enabled in VS Code during part of the development process. I did not intentionally accept these suggestions and later disabled Next Edit Suggestions to prevent AI-generated related code edits during the remainder of the assignment. Standard TypeScript IntelliSense remained enabled.
 
+GitHub Copilot Chat was also used briefly to help locate relevant files in the project and to suggest minor UI styling adjustments, including theme-aware colours, hover shadows, and tag visibility. It was not used to implement the application’s core functionality.
+
 Where applicable, the implementation suggestions followed patterns and examples from the course material provided, including `useState`, `useEffect`, conditional rendering, list rendering, Zustand, React Hook Form, and Zod. The patterns were adapted to the project’s TypeScript structure and specific requirements rather than copied as complete course solutions. I reviewed, adapted, manually integrated, and tested these suggestions. I am responsible for the final implementation and can explain the submitted code.
 
 ## 21–27 July 2026 — Project planning and setup
@@ -96,7 +98,7 @@ Where applicable, the implementation suggestions followed patterns and examples 
 
 **Assistance received:** Recommendation to use the shadcn/ui Sonner component, instructions for integrating the global toaster, and guidance on triggering a success toast after the Zustand cart action. ChatGPT also helped assess and improve the toast position so it did not cover the cart indicator in the header.
 
-**Outcome:** A toast notification containing the product title is shown after adding a product. The notification was moved to the bottom-right position and tested together with the cart count.
+**Outcome:** A toast notification containing the product title is shown after adding a product. During the final responsive review, I moved the toast to the top-right and added separate desktop and mobile offsets so it remains visible without covering the header.
 
 ## 3 August 2026 — Search requirement correction
 
@@ -130,17 +132,17 @@ Where applicable, the implementation suggestions followed patterns and examples 
 
 ## 9 August 2026 — Branding and favicon workflow
 
-Tool used: ChatGPT
+**Tool used:** ChatGPT
 
-Purpose: Discuss an appropriate workflow for creating and exporting a logo and favicon from Figma.
+**Purpose:** Discuss an appropriate workflow for creating and exporting a logo and favicon from Figma.
 
-Assistance received: ChatGPT provided general guidance on suitable file formats and the practical use of separate light and dark logo variants. I created the visual design and exported the final assets from Figma myself.
+**Assistance received:** ChatGPT provided general guidance on suitable file formats and the practical use of separate light and dark logo variants. I created the visual design and exported the final assets from Figma myself.
 
-Outcome: I added a custom favicon and separate light and dark SVG logo files. I integrated both logo variants into the Header and Footer and verified that the files are referenced by the application.
+**Outcome:** I added a custom favicon and separate light and dark SVG logo files. I integrated both logo variants into the Header and Footer and verified that the files are referenced by the application.
 
 ## 9 August 2026 — Responsive cart layout
 
-**Tool used: ChatGPT**
+**Tool used:** ChatGPT
 
 **Purpose:** Identify and correct a horizontal overflow problem on the Cart page at mobile screen widths.
 
@@ -150,7 +152,7 @@ Outcome: I added a custom favicon and separate light and dark SVG logo files. I 
 
 ## 9 August 2026 — Drafting a Readme file
 
-**Tool used: ChatGPT**
+**Tool used:** ChatGPT
 
 **Purpose:** Create a structured README that documents the project’s functionality, tech stack, setup, API usage, and available scripts.
 
@@ -166,4 +168,24 @@ Outcome: I added a custom favicon and separate light and dark SVG logo files. I 
 
 **Assistance received:** ChatGPT explained that Netlify needed a redirect rule to serve index.html for routes handled by React Router.
 
-**Outcome:** I added a public/\_redirects file so routes such as /cart work when opened or refreshed directly.
+**Outcome:** I added a `public/_redirects` file so routes such as `/cart` work when opened or refreshed directly.
+
+## 9–10 August 2026 — Final UI and responsive refinements
+
+**Tool used:** ChatGPT
+
+**Purpose:** Review user-interface details found during manual testing and ensure that the implemented design met the grading criteria across screen sizes.
+
+**Assistance received:** ChatGPT helped interpret the requirement for a percentage-based discount sticker and provided implementation guidance after I decided to add product thumbnails to the clickable search-results container. Feedback on responsive toast placement and the optical alignment of the cart quantity controls was received. The changes were discussed and tested step by step rather than applied as a complete generated solution.
+
+**Outcome:** I selected, manually implemented, and tested the refinements. Product cards now display the discount percentage, search results include clickable thumbnails, cart controls are visually balanced, and toast notifications remain visible on mobile and large desktop screens.
+
+## 10 August 2026 — Product error handling and final testing
+
+**Tool used:** ChatGPT
+
+**Purpose:** Understand and test error handling for invalid and missing product IDs.
+
+**Assistance received:** ChatGPT explained the difference between HTTP 400 and 404 responses, why the existing generic response.ok check handled both identically, and why the specific status checks must appear before the general error check. It also helped identify a valid UUID that did not correspond to an existing product for testing the deployed 404 flow.
+
+**Outcome:** I implemented and tested separate user-facing messages for invalid product IDs, missing products, and other product-fetching errors. The application now handles these API responses gracefully without crashing.
