@@ -5,6 +5,7 @@ import type { Product } from "../types/product";
 import { Button } from "@/components/ui/button";
 import { useCartStore } from "@/features/cart/store/cartStore";
 import { toast } from "sonner";
+import { Star } from "lucide-react";
 
 export function ProductPage() {
   const { id } = useParams<{ id: string }>();
@@ -94,7 +95,20 @@ export function ProductPage() {
           <h1 className="text-3xl font-bold">{product.title}</h1>
 
           <p>{product.description}</p>
-          <p>Rating: {product.rating}/5</p>
+          <div className="flex items-center gap-1">
+            <span className="sr-only">Rating: {product.rating} out of 5</span>
+            {[1, 2, 3, 4, 5].map((star) => (
+              <Star
+                aria-hidden="true"
+                className={
+                  star <= product.rating
+                    ? "h-5 w-5 fill-current text-foreground"
+                    : "h-5 w-5 text-muted-foreground"
+                }
+                key={star}
+              />
+            ))}
+          </div>
 
           {hasDiscount ? (
             <div>

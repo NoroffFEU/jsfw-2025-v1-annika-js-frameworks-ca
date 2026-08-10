@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { Star } from "lucide-react";
 
 import type { Product } from "../types/product";
 
@@ -31,7 +32,20 @@ export function ProductCard({ product }: ProductCardProps) {
         <div className="space-y-2 p-4">
           <h2 className="text-lg font-semibold">{product.title}</h2>
 
-          <p>Rating: {product.rating}/5</p>
+          <div className="flex items-center gap-1">
+            <span className="sr-only">Rating: {product.rating} out of 5</span>
+            {[1, 2, 3, 4, 5].map((star) => (
+              <Star
+                aria-hidden="true"
+                className={
+                  star <= product.rating
+                    ? "h-5 w-5 fill-current text-foreground"
+                    : "h-5 w-5 text-muted-foreground"
+                }
+                key={star}
+              />
+            ))}
+          </div>
 
           {hasDiscount ? (
             <div>
