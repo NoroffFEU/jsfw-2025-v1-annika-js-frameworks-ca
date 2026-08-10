@@ -156,7 +156,7 @@ export function ProductPage() {
                 ))}
               </ul>
             ) : (
-              <p>No reviews yet.</p>
+              <p>No reviews yet</p>
             )}
           </div>
         </div>
