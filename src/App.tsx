@@ -20,7 +20,17 @@ function App() {
   return (
     <>
       <AppRoutes />
-      <Toaster position="bottom-right" />
+      <Toaster
+        position="top-right"
+        offset={{
+          top: 70,
+          right: "max(1rem, calc((100vw - 80rem) / 2 + 2rem))",
+        }}
+        mobileOffset={{
+          top: 70,
+          right: 16,
+        }}
+      />
     </>
   );
 }
