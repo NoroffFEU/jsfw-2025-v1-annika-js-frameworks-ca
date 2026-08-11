@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import { getProduct } from "../services/productsApi";
 import type { Product } from "../types/product";
 import { Button } from "@/components/ui/button";
@@ -131,11 +131,13 @@ export function ProductPage() {
               <h2 className="font-semibold">Tags</h2>
               <ul className="flex flex-wrap gap-2">
                 {product.tags.map((tag) => (
-                  <li
-                    className="rounded-md border border-border bg-secondary px-2 py-1 text-secondary-foreground"
-                    key={tag}
-                  >
-                    {tag}
+                  <li key={tag}>
+                    <Link
+                      className="block rounded-md border border-border bg-secondary px-2 py-1 text-secondary-foreground hover:bg-muted"
+                      to={`/?search=${encodeURIComponent(tag)}`}
+                    >
+                      {tag}
+                    </Link>
                   </li>
                 ))}
               </ul>

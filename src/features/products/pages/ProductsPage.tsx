@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, useSearchParams } from "react-router";
 import { useEffect, useState } from "react";
 import { ProductCard } from "../components/ProductCard";
 
@@ -6,10 +6,14 @@ import { getProducts } from "../services/productsApi";
 import type { Product } from "../types/product";
 
 export function ProductsPage() {
+  const [searchParams] = useSearchParams();
+
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState(
+    searchParams.get("search") ?? "",
+  );
 
   useEffect(() => {
     const fetchAllProducts = async () => {
@@ -59,9 +63,17 @@ export function ProductsPage() {
 
   const normalizedSearchTerm = searchTerm.trim().toLowerCase();
 
-  const filteredProducts = products.filter((product) =>
-    product.title.toLowerCase().includes(normalizedSearchTerm),
-  );
+  const filteredProducts = products.filter((product) => {
+    const titleMatches = product.title
+      .toLowerCase()
+      .includes(normalizedSearchTerm);
+
+    const tagMatches = product.tags.some((tag) =>
+      tag.toLowerCase().includes(normalizedSearchTerm),
+    );
+
+    return titleMatches || tagMatches;
+  });
 
   return (
     <section className="min-h-screen p-8">
@@ -77,7 +89,7 @@ export function ProductsPage() {
           type="search"
           value={searchTerm}
           onChange={(event) => setSearchTerm(event.target.value)}
-          placeholder="Search by product name..."
+          placeholder="Search by product name or tag..."
         />
 
         {normalizedSearchTerm && (
