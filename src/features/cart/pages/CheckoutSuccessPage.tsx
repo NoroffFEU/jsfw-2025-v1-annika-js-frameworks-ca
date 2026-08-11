@@ -8,6 +8,11 @@ export function CheckoutSuccessPage() {
 
   useEffect(() => {
     clearCart();
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   }, [clearCart]);
 
   return (
