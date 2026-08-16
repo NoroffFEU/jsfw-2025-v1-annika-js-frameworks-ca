@@ -189,3 +189,23 @@ Where applicable, the implementation suggestions followed patterns and examples 
 **Assistance received:** ChatGPT explained the difference between HTTP 400 and 404 responses, why the existing generic response.ok check handled both identically, and why the specific status checks must appear before the general error check. It also helped identify a valid UUID that did not correspond to an existing product for testing the deployed 404 flow.
 
 **Outcome:** I implemented and tested separate user-facing messages for invalid product IDs, missing products, and other product-fetching errors. The application now handles these API responses gracefully without crashing.
+
+## 11–15 August 2026 — Final testing and interface refinements
+
+**Tool used:** ChatGPT
+
+**Purpose:** Review details discovered while manually testing the completed application.
+
+**Assistance received:** ChatGPT provided explanations and implementation guidance concerning searching by product tags, linking tags to matching search results, scrolling to the top after checkout, displaying ratings with icons, interaction behaviour for imported buttons, and decisions concerning loading feedback. The suggestions were considered, manually implemented where appropriate, and tested across different routes, themes and screen sizes.
+
+**Outcome:** I refined the search and navigation behaviour, improved feedback and interaction details, and removed changes that did not improve the user experience. The testing also showed me the value of keeping a personal checklist of recurring issues discovered across projects.
+
+## 16 August 2026 — Reflection and final documentation review
+
+**Tool used:** ChatGPT
+
+**Purpose:** Prepare the written project reflection and complete the required AI documentation.
+
+**Assistance received:** ChatGPT reviewed the structure, wording and technical accuracy of my reflection. We discussed how to describe my framework and tool choices, challenges, existing skills and development process accurately and concisely. ChatGPT also helped interpret the requirement to include the AI usage log in both the repository and the reflection report.
+
+**Outcome:** I completed and clarified the reflection without making further changes to the application functionality. I also copied the updated AI usage log into the reflection as an appendix.
